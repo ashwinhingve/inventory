@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* Typography color system */
+  --text-dark: #111827;       /* gray-900 for headings */
+  --text-default: #374151;    /* gray-800 for body text */
+  --text-light: #4B5563;      /* gray-700 for secondary text */
+  --text-muted: #6B7280;      /* gray-600 for muted text */
+  
+  /* Brand colors */
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+  --blue-800: #1e40af;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    
+    /* Dark mode text colors */
+    --text-dark: #f9fafb;     /* gray-50 */
+    --text-default: #f3f4f6;  /* gray-100 */
+    --text-light: #e5e7eb;    /* gray-200 */
+    --text-muted: #d1d5db;    /* gray-300 */
+    
+    /* Dark mode brand colors */
+    --blue-600: #3b82f6;
+    --blue-700: #2563eb;
+    --blue-800: #1d4ed8;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Typography utility classes */
+.text-heading {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.text-body {
+  color: var(--text-default);
+  font-weight: 400;
+}
+
+.text-subtitle {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.text-caption {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+/* Focus styles for better accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600;
+}
