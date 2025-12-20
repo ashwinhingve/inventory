@@ -1,0 +1,574 @@
+
+> stock@0.1.0 dev
+> next dev
+
+ ΓÜá Port 3000 is in use, using available port 3001 instead.
+   Γû▓ Next.js 15.3.2
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.137.1:3001
+   - Environments: .env.local
+
+ Γ£ô Starting...
+ Γ£ô Ready in 2.2s
+ Γùï Compiling / ...
+ Γ£ô Compiled / in 3.2s (1577 modules)
+ GET / 200 in 4727ms
+ Γùï Compiling /favicon.ico ...
+ Γ£ô Compiled /api/auth/[...nextauth] in 1373ms (840 modules)
+ Γ£ô Compiled in 1172ms (754 modules)
+ GET /favicon.ico 200 in 3859ms
+ GET /favicon.ico 200 in 60ms
+Auth Warning: NEXTAUTH_URL
+Auth Warning: DEBUG_ENABLED
+ GET /api/auth/session 200 in 5917ms
+ Γùï Compiling /signup ...
+ Γ£ô Compiled /signup in 1166ms (1981 modules)
+ GET /signup 200 in 1948ms
+Auth Warning: NEXTAUTH_URL
+Auth Warning: DEBUG_ENABLED
+ GET /api/auth/check-admin 400 in 549ms
+ GET /api/auth/session 200 in 561ms
+ Γùï Compiling /api/auth/signup ...
+ Γ£ô Compiled /api/auth/signup in 1210ms (1699 modules)
+Starting signup process
+Connected to MongoDB
+Connected to MongoDB successfully
+Request body parsed: {
+  name: 'Test User',
+  email: 'testuser@example.com',
+  password: '[REDACTED]',
+  organizationName: 'Test Org',
+  role: 'store_admin'
+}
+ POST /api/auth/signup 403 in 3076ms
+ Γùï Compiling /login ...
+ Γ£ô Compiled /login in 693ms (1708 modules)
+ GET /login 200 in 920ms
+ Γùï Compiling /api/auth/login ...
+ Γ£ô Compiled /api/auth/login in 6.1s (1786 modules)
+ POST /api/auth/login 401 in 7191ms
+ Γùï Compiling /register ...
+ Γ£ô Compiled /register in 1497ms (1793 modules)
+ GET /register 200 in 2404ms
+ Γùï Compiling /api/auth/[...nextauth] ...
+ Γ£ô Compiled /api/auth/[...nextauth] in 7s (2101 modules)
+Attempting to update MongoDB schema for User model...
+Valid roles: [ 'owner', 'store_admin', 'sales_operator', 'sales_purchase_operator' ]
+Successfully updated MongoDB schema validation for users collection
+Auth Warning: NEXTAUTH_URL
+Auth Warning: DEBUG_ENABLED
+ GET /api/auth/session 200 in 10332ms
+ GET /api/auth/update-schema 200 in 10719ms
+ GET /api/auth/session 200 in 107ms
+ POST /api/auth/login 401 in 197ms
+ POST /api/auth/login 401 in 114ms
+ Γ£ô Compiled /favicon.ico in 373ms (1021 modules)
+ GET /favicon.ico 200 in 466ms
+ GET /login 200 in 638ms
+ GET /register 200 in 460ms
+ Γùï Compiling /favicon.ico ...
+ Γ£ô Compiled /favicon.ico in 684ms (1209 modules)
+ Γ£ô Compiled (1223 modules)
+ Γ£ô Compiled /api/auth/update-schema in 244ms (1229 modules)
+ GET /favicon.ico 200 in 1991ms
+Auth Warning: NEXTAUTH_URL
+Auth Warning: DEBUG_ENABLED
+ GET /api/auth/session 200 in 2215ms
+Attempting to update MongoDB schema for User model...
+Valid roles: [ 'owner', 'store_admin', 'sales_operator', 'sales_purchase_operator' ]
+Successfully updated MongoDB schema validation for users collection
+ GET /api/auth/update-schema 200 in 1219ms
+ GET /favicon.ico 200 in 90ms
+ GET /api/auth/session 200 in 88ms
+ GET /api/auth/session 200 in 30ms
+ ΓÜá Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ Γ£ô Compiled in 2.9s (1684 modules)
+ GET /register 200 in 510ms
+ GET /register 200 in 796ms
+ Γ£ô Compiled /favicon.ico in 263ms (912 modules)
+ GET /favicon.ico 200 in 373ms
+ Γ£ô Compiled /api/auth/[...nextauth] in 168ms (1223 modules)
+ GET /signup 200 in 648ms
+Auth Warning: NEXTAUTH_URL
+Auth Warning: DEBUG_ENABLED
+ GET /api/auth/session 200 in 679ms
+ GET /api/auth/check-admin 400 in 20ms
+ GET /api/auth/check-admin 400 in 21ms
+ Γ£ô Compiled in 542ms (788 modules)
+ GET /signup 200 in 43ms
+ GET /register 200 in 246ms
+ GET /favicon.ico 200 in 715ms
+ GET /api/auth/session 200 in 845ms
+ GET /signup 200 in 1438ms
+ GET /api/auth/check-admin 400 in 278ms
+ GET /api/auth/check-admin 400 in 200ms
+ GET /api/auth/session 200 in 289ms
+ Γùï Compiling /api/auth/signup ...
+ Γ£ô Compiled /api/auth/signup in 1298ms (941 modules)
+Starting signup process
+Connected to MongoDB successfully
+Request body parsed: {
+  name: 'Test User',
+  email: 'testuser123@example.com',
+  password: '[REDACTED]',
+  organizationName: 'Test Organization',
+  role: 'store_admin'
+}
+ POST /api/auth/signup 403 in 1767ms
+Starting signup process
+Connected to MongoDB successfully
+Request body parsed: {
+  name: 'Test User',
+  email: 'testuser123@example.com',
+  password: '[REDACTED]',
+  organizationName: 'Test Organization',
+  role: 'store_admin'
+}
+ POST /api/auth/signup 403 in 256ms
+ GET /login 200 in 356ms
+ Γùï Compiling /api/auth/[...nextauth] ...
+ Γ£ô Compiled /api/auth/[...nextauth] in 583ms (1249 modules)
+Auth Warning: NEXTAUTH_URL
+Auth Warning: DEBUG_ENABLED
+ GET /api/auth/session 200 in 1027ms
+ GET /api/auth/session 200 in 42ms
+ GET /api/auth/session 200 in 37ms
+ GET /api/auth/check-admin 400 in 37ms
+ Γ£ô Compiled in 863ms (788 modules)
+ GET /login 200 in 183ms
+ GET /signup 200 in 190ms
+ GET /signup 200 in 249ms
+ Γ£ô Compiled in 862ms (788 modules)
+ GET /signup 200 in 222ms
+ GET /login 200 in 62ms
+ GET /signup 200 in 49ms
+ Γ£ô Compiled in 1075ms (788 modules)
+ GET /signup 200 in 169ms
+ GET /login 200 in 131ms
+ GET /signup 200 in 132ms
+ Γ£ô Compiled in 676ms (788 modules)
+ GET /login 200 in 100ms
+ GET /signup 200 in 89ms
+ GET /signup 200 in 55ms
+ Γùï Compiling /api/auth/login ...
+ Γ£ô Compiled /api/auth/login in 773ms (1325 modules)
+ POST /api/auth/login 401 in 1018ms
+ Γ£ô Compiled in 402ms (788 modules)
+ GET /signup 200 in 118ms
+ GET /login 200 in 123ms
+ GET /signup 200 in 56ms
+ Γ£ô Compiled in 531ms (788 modules)
+ GET /signup 200 in 75ms
+ GET /login 200 in 74ms
+ GET /signup 200 in 56ms
+ Γ£ô Compiled in 548ms (788 modules)
+ GET /login 200 in 58ms
+ GET /signup 200 in 82ms
+ GET /signup 200 in 43ms
+ Γ£ô Compiled in 1954ms (1807 modules)
+ GET /login 200 in 1467ms
+ GET /signup 200 in 1475ms
+ Γ£ô Compiled in 470ms (788 modules)
+ GET /signup 200 in 145ms
+ GET /login 200 in 145ms
+ GET /signup 200 in 42ms
+ GET /login 200 in 34ms
+ Γ£ô Compiled in 480ms (788 modules)
+ GET /login 200 in 44ms
+ GET /signup 200 in 65ms
+ Γùï Compiling /api/auth/check-admin ...
+ Γ£ô Compiled /api/auth/check-admin in 842ms (1795 modules)
+ GET /api/auth/check-admin 200 in 956ms
+ GET /signup 200 in 640ms
+ GET /api/auth/check-admin 200 in 92ms
+ Γùï Compiling /api/auth/[...nextauth] ...
+ Γ£ô Compiled /api/auth/[...nextauth] in 637ms (1227 modules)
+Auth Warning: NEXTAUTH_URL
+Auth Warning: DEBUG_ENABLED
+ GET /api/auth/session 200 in 1197ms
+ GET /api/auth/session 200 in 97ms
+ GET /api/auth/session 200 in 78ms
+ Γ£ô Compiled in 568ms (788 modules)
+ GET /login 200 in 100ms
+ GET /signup 200 in 131ms
+ GET /signup 200 in 34ms
+ Γ£ô Compiled in 385ms (788 modules)
+ GET /login 200 in 42ms
+ GET /signup 200 in 60ms
+ GET /signup 200 in 28ms
+ Γùï Compiling /api/auth/login ...
+ Γ£ô Compiled /api/auth/login in 555ms (1019 modules)
+ POST /api/auth/login 401 in 785ms
+ POST /api/auth/login 401 in 52ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\Do Not Open\project\nevdev\.next\cache\webpack\client-development\0.pack.gz_' -> 'D:\Do Not Open\project\nevdev\.next\cache\webpack\client-development\0.pack.gz'
+ Γ£ô Compiled /api/auth/check-admin in 463ms (1021 modules)
+ GET /api/auth/check-admin 200 in 576ms
+ GET /register 200 in 243ms
+ Γ£ô Compiled /api/auth/[...nextauth] in 482ms (1327 modules)
+ GET /signup 200 in 1728ms
+Auth Warning: NEXTAUTH_URL
+Auth Warning: DEBUG_ENABLED
+ GET /api/auth/session 200 in 1861ms
+ GET /api/auth/check-admin 200 in 61ms
+ GET /api/auth/check-admin 200 in 49ms
+ GET /api/auth/session 200 in 55ms
+ GET /api/auth/session 200 in 48ms
+ GET /api/auth/session 200 in 44ms
+ Γùï Compiling /dashboard ...
+ Γ£ô Compiled /dashboard in 2.3s (2166 modules)
+ GET /dashboard 200 in 2986ms
+ Γùï Compiling /_not-found ...
+ Γ£ô Compiled /_not-found in 691ms (2170 modules)
+ GET /_next/static/webpack/a63620d944502350.webpack.hot-update.json 404 in 913ms
+ ΓÜá Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /signup 200 in 181ms
+ Γ£ô Compiled /favicon.ico in 447ms (1364 modules)
+ GET /favicon.ico 200 in 826ms
+ GET /api/auth/check-admin 200 in 689ms
+Auth Warning: NEXTAUTH_URL
+Auth Warning: DEBUG_ENABLED
+ GET /api/auth/session 200 in 549ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 26ms
+ GET /api/auth/session 200 in 26ms
+ Γùï Compiling /api/products ...
+ Γ£ô Compiled /api/products in 3.3s (2221 modules)
+Auth Warning: NEXTAUTH_URL
+Auth Warning: DEBUG_ENABLED
+ GET /api/dashboard/stats?storeId=MyStore 401 in 3590ms
+ GET /api/auth/session 200 in 3597ms
+ GET /api/products?lowStock=true 200 in 3902ms
+ GET /login 200 in 2343ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 26ms
+ GET /api/auth/session 200 in 27ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 24ms
+ GET /signup 200 in 272ms
+ GET /api/auth/check-admin 200 in 786ms
+ GET /api/auth/session 200 in 565ms
+ GET /api/auth/session 200 in 527ms
+ GET /api/auth/session 200 in 398ms
+ GET /api/auth/session 200 in 457ms
+ GET /api/auth/session 200 in 237ms
+ GET /api/auth/session 200 in 225ms
+ GET /login 200 in 188ms
+ GET /api/auth/session 200 in 618ms
+ GET /api/auth/session 200 in 224ms
+ GET /api/auth/session 200 in 181ms
+ GET /api/auth/session 200 in 264ms
+ GET /api/auth/session 200 in 283ms
+ GET /api/auth/session 200 in 180ms
+ GET /api/auth/session 200 in 344ms
+ Γ£ô Compiled in 1607ms (819 modules)
+ GET /login 200 in 162ms
+ GET /signup 200 in 166ms
+ GET /favicon.ico 200 in 93ms
+ GET /signup 200 in 57ms
+ GET /login 200 in 69ms
+ GET /signup 200 in 71ms
+ GET /login 200 in 57ms
+ GET /signup 200 in 50ms
+ POST /api/auth/login 401 in 110ms
+ Γ£ô Compiled in 722ms (819 modules)
+ GET /login 200 in 86ms
+ GET /signup 200 in 79ms
+ GET /login 200 in 94ms
+ GET /signup 200 in 108ms
+ GET /login 200 in 87ms
+ GET /signup 200 in 74ms
+ GET /signup 200 in 39ms
+ GET /favicon.ico 200 in 26ms
+ Γ£ô Compiled in 629ms (819 modules)
+ GET /signup 200 in 152ms
+ GET /login 200 in 323ms
+ GET /signup 200 in 303ms
+ GET /login 200 in 120ms
+ GET /signup 200 in 104ms
+ GET /login 200 in 92ms
+ GET /signup 200 in 73ms
+ Γ£ô Compiled in 748ms (819 modules)
+ GET /signup 200 in 76ms
+ GET /login 200 in 69ms
+ GET /signup 200 in 71ms
+ GET /login 200 in 71ms
+ GET /signup 200 in 40ms
+ GET /login 200 in 48ms
+ GET /signup 200 in 40ms
+ Γ£ô Compiled in 710ms (819 modules)
+ GET /signup 200 in 103ms
+ GET /login 200 in 68ms
+ GET /login 200 in 40ms
+ GET /signup 200 in 37ms
+ GET /login 200 in 67ms
+ GET /signup 200 in 67ms
+ GET /signup 200 in 41ms
+ Γ£ô Compiled in 713ms (819 modules)
+ GET /signup 200 in 67ms
+ GET /login 200 in 106ms
+ GET /signup 200 in 119ms
+ GET /login 200 in 106ms
+ GET /signup 200 in 79ms
+ GET /login 200 in 59ms
+ Γ£ô Compiled in 598ms (819 modules)
+ GET /signup 200 in 59ms
+ GET /login 200 in 734ms
+ Γ£ô Compiled in 816ms (819 modules)
+ GET /signup 200 in 935ms
+ GET /login 200 in 1138ms
+ Γ£ô Compiled in 866ms (819 modules)
+ GET /signup 200 in 904ms
+ GET /login 200 in 758ms
+ Γ£ô Compiled in 731ms (819 modules)
+ GET /signup 200 in 741ms
+ GET /login 200 in 718ms
+ Γ£ô Compiled in 701ms (819 modules)
+ GET /signup 200 in 694ms
+ Γ£ô Compiled in 645ms (819 modules)
+ GET /signup 200 in 732ms
+ GET /login 200 in 807ms
+ Γ£ô Compiled in 677ms (819 modules)
+ GET /signup 200 in 660ms
+ Γ£ô Compiled in 644ms (819 modules)
+ GET /login 200 in 625ms
+ Γ£ô Compiled in 714ms (819 modules)
+ GET /login 200 in 724ms
+ GET /signup 200 in 641ms
+ Γ£ô Compiled in 611ms (819 modules)
+ GET /login 200 in 716ms
+ Γ£ô Compiled in 858ms (819 modules)
+ GET /signup 200 in 399ms
+ Γ£ô Compiled in 621ms (819 modules)
+ GET /login 200 in 603ms
+ Γ£ô Compiled in 583ms (819 modules)
+ GET /signup 200 in 601ms
+ Γ£ô Compiled in 590ms (819 modules)
+ GET /signup 200 in 588ms
+ Γ£ô Compiled in 555ms (819 modules)
+ Γ£ô Compiled in 526ms (819 modules)
+ Γ£ô Compiled in 502ms (819 modules)
+ Γ£ô Compiled in 579ms (819 modules)
+ GET /signup 200 in 541ms
+ Γ£ô Compiled in 521ms (819 modules)
+ GET /login 200 in 693ms
+ Γ£ô Compiled in 746ms (819 modules)
+ Γ£ô Compiled in 600ms (819 modules)
+ Γ£ô Compiled in 653ms (819 modules)
+ Γ£ô Compiled in 516ms (819 modules)
+ Γ£ô Compiled in 519ms (819 modules)
+ GET /login 200 in 535ms
+ Γ£ô Compiled in 512ms (819 modules)
+ Γ£ô Compiled in 526ms (819 modules)
+ GET /signup 200 in 44ms
+ GET /login 200 in 38ms
+ GET /signup 200 in 38ms
+ GET /signup 200 in 43ms
+ GET /login 200 in 40ms
+ GET /signup 200 in 39ms
+ GET /login 200 in 121ms
+ GET /signup 200 in 134ms
+ GET /login 200 in 43ms
+ GET /login 200 in 39ms
+ GET /signup 200 in 42ms
+ GET /signup 200 in 38ms
+ GET /signup 200 in 39ms
+ GET /signup 200 in 51ms
+ GET /signup 200 in 41ms
+ GET /login 200 in 37ms
+ GET /signup 200 in 48ms
+ GET /signup 200 in 35ms
+ GET /signup 200 in 39ms
+ GET /signup 200 in 38ms
+ GET /signup 200 in 38ms
+ GET /login 200 in 46ms
+ GET /signup 200 in 36ms
+ GET /signup 200 in 37ms
+ GET /signup 200 in 50ms
+ GET /login 200 in 40ms
+ GET /login 200 in 33ms
+ GET /login 200 in 41ms
+ GET /signup 200 in 46ms
+ GET /login 200 in 76ms
+ GET /signup 200 in 77ms
+ GET /signup 200 in 46ms
+ GET /signup 200 in 43ms
+ GET /signup 200 in 36ms
+ GET /signup 200 in 44ms
+ GET /login 200 in 39ms
+ GET /signup 200 in 36ms
+ GET /login 200 in 38ms
+ GET /signup 200 in 52ms
+ GET /signup 200 in 38ms
+ Γ£ô Compiled in 768ms (819 modules)
+ GET /login 200 in 363ms
+ GET /signup 200 in 40ms
+ GET /login 200 in 35ms
+ GET /login 200 in 38ms
+ GET /signup 200 in 34ms
+ GET /signup 200 in 36ms
+ GET /login 200 in 54ms
+ GET /signup 200 in 42ms
+ GET /signup 200 in 49ms
+ GET /login 200 in 39ms
+ GET /signup 200 in 35ms
+ GET /login 200 in 37ms
+ GET /login 200 in 34ms
+ GET /signup 200 in 36ms
+ GET /login 200 in 37ms
+ GET /login 200 in 35ms
+ GET /login 200 in 38ms
+ GET /login 200 in 42ms
+ GET /login 200 in 52ms
+ GET /signup 200 in 39ms
+ GET /login 200 in 38ms
+ GET /login 200 in 35ms
+ GET /login 200 in 38ms
+ GET /signup 200 in 39ms
+ GET /signup 200 in 39ms
+ GET /signup 200 in 43ms
+ GET /signup 200 in 46ms
+ GET /signup 200 in 42ms
+ GET /signup 200 in 38ms
+ GET /signup 200 in 34ms
+ GET /signup 200 in 39ms
+ GET /login 200 in 37ms
+ Γ£ô Compiled in 523ms (819 modules)
+ GET /signup 200 in 89ms
+ GET /login 200 in 80ms
+ GET /signup 200 in 57ms
+ GET /login 200 in 77ms
+ GET /login 200 in 64ms
+ GET /login 200 in 86ms
+ GET /login 200 in 39ms
+ GET /login 200 in 87ms
+ GET /login 200 in 69ms
+ GET /login 200 in 48ms
+ GET /login 200 in 71ms
+ GET /login 200 in 72ms
+ GET /login 200 in 48ms
+ GET /login 200 in 95ms
+ GET /login 200 in 46ms
+ GET /login 200 in 84ms
+ GET /login 200 in 79ms
+ GET /login 200 in 57ms
+ GET /login 200 in 50ms
+ GET /register 200 in 72ms
+ GET /signup 200 in 64ms
+ GET /signup 200 in 59ms
+ GET /api/auth/check-admin 200 in 41ms
+ GET /api/auth/check-admin 200 in 33ms
+ GET /login 200 in 105ms
+ Γ£ô Compiled in 385ms (819 modules)
+ GET /login 200 in 80ms
+ Γ£ô Compiled in 420ms (819 modules)
+ GET /login 200 in 32ms
+ Γ£ô Compiled in 276ms (819 modules)
+ Γ£ô Compiled in 253ms (819 modules)
+ Γ£ô Compiled in 250ms (819 modules)
+ Γ£ô Compiled in 244ms (819 modules)
+ Γ£ô Compiled in 249ms (819 modules)
+ Γ£ô Compiled in 247ms (819 modules)
+ Γ£ô Compiled in 251ms (819 modules)
+ Γ£ô Compiled in 292ms (819 modules)
+ Γ£ô Compiled in 304ms (819 modules)
+ Γ£ô Compiled in 256ms (819 modules)
+ Γ£ô Compiled in 256ms (819 modules)
+ Γ£ô Compiled in 257ms (819 modules)
+ Γ£ô Compiled in 248ms (819 modules)
+ Γ£ô Compiled in 248ms (819 modules)
+ Γ£ô Compiled in 267ms (819 modules)
+ Γ£ô Compiled in 241ms (819 modules)
+ Γ£ô Compiled in 253ms (819 modules)
+ Γ£ô Compiled in 250ms (819 modules)
+ Γ£ô Compiled in 360ms (819 modules)
+ Γ£ô Compiled in 278ms (819 modules)
+ Γ£ô Compiled in 259ms (819 modules)
+ Γ£ô Compiled in 253ms (819 modules)
+ Γ£ô Compiled in 263ms (819 modules)
+ Γ£ô Compiled in 267ms (819 modules)
+ Γ£ô Compiled in 276ms (819 modules)
+ Γ£ô Compiled in 269ms (819 modules)
+ Γ£ô Compiled in 244ms (819 modules)
+ Γ£ô Compiled in 269ms (819 modules)
+ Γ£ô Compiled in 244ms (819 modules)
+ Γ£ô Compiled in 249ms (819 modules)
+ Γ£ô Compiled in 247ms (819 modules)
+ Γ£ô Compiled in 263ms (819 modules)
+ Γ£ô Compiled in 256ms (819 modules)
+ Γ£ô Compiled in 252ms (819 modules)
+ Γ£ô Compiled in 263ms (819 modules)
+ Γ£ô Compiled in 321ms (819 modules)
+ Γ£ô Compiled in 253ms (819 modules)
+ Γ£ô Compiled in 272ms (819 modules)
+ Γ£ô Compiled in 252ms (819 modules)
+ Γ£ô Compiled in 260ms (819 modules)
+ Γ£ô Compiled in 299ms (819 modules)
+ Γ£ô Compiled in 261ms (819 modules)
+ Γ£ô Compiled in 271ms (819 modules)
+ Γ£ô Compiled in 271ms (819 modules)
+ Γ£ô Compiled in 260ms (819 modules)
+ Γ£ô Compiled in 250ms (819 modules)
+ Γ£ô Compiled in 270ms (819 modules)
+ Γ£ô Compiled in 277ms (819 modules)
+ Γ£ô Compiled in 240ms (819 modules)
+ Γ£ô Compiled in 258ms (819 modules)
+ Γ£ô Compiled in 262ms (819 modules)
+ Γ£ô Compiled in 236ms (819 modules)
+ Γ£ô Compiled in 256ms (819 modules)
+ Γ£ô Compiled in 242ms (819 modules)
+ Γ£ô Compiled in 246ms (819 modules)
+ Γ£ô Compiled in 242ms (819 modules)
+ Γ£ô Compiled in 240ms (819 modules)
+ Γ£ô Compiled in 276ms (819 modules)
+ Γ£ô Compiled in 288ms (819 modules)
+ Γ£ô Compiled in 239ms (819 modules)
+ Γ£ô Compiled in 246ms (819 modules)
+ Γ£ô Compiled in 272ms (819 modules)
+ Γ£ô Compiled in 285ms (819 modules)
+ Γ£ô Compiled in 249ms (819 modules)
+ Γ£ô Compiled in 256ms (819 modules)
+ Γ£ô Compiled in 267ms (819 modules)
+ Γ£ô Compiled in 296ms (819 modules)
+ Γ£ô Compiled in 292ms (819 modules)
+ Γ£ô Compiled in 343ms (819 modules)
+ Γ£ô Compiled in 293ms (819 modules)
+ Γ£ô Compiled in 267ms (819 modules)
+ Γ£ô Compiled in 325ms (819 modules)
+ GET /favicon.ico 200 in 254ms
+ Γ£ô Compiled in 281ms (819 modules)
+ Γ£ô Compiled in 279ms (819 modules)
+ Γ£ô Compiled in 248ms (819 modules)
+ Γ£ô Compiled in 268ms (819 modules)
+ Γ£ô Compiled in 287ms (819 modules)
+ Γ£ô Compiled in 228ms (819 modules)
+ Γ£ô Compiled in 253ms (819 modules)
+ Γ£ô Compiled in 270ms (819 modules)
+ Γ£ô Compiled in 260ms (819 modules)
+ Γ£ô Compiled in 264ms (819 modules)
+ Γ£ô Compiled in 348ms (819 modules)
+ Γ£ô Compiled in 260ms (819 modules)
+ Γ£ô Compiled in 231ms (819 modules)
+ Γ£ô Compiled in 276ms (819 modules)
+ Γ£ô Compiled in 713ms (819 modules)
+ Γ£ô Compiled in 509ms (819 modules)
+ Γ£ô Compiled in 444ms (819 modules)
+ Γ£ô Compiled in 488ms (819 modules)
+ Γ£ô Compiled in 462ms (819 modules)
+ Γ£ô Compiled in 483ms (819 modules)
+ Γ£ô Compiled in 572ms (819 modules)
+ Γ£ô Compiled in 476ms (819 modules)
+ Γ£ô Compiled in 533ms (819 modules)
+ Γ£ô Compiled in 470ms (819 modules)
+ Γ£ô Compiled in 492ms (819 modules)
+ Γ£ô Compiled in 480ms (819 modules)
+ Γ£ô Compiled in 692ms (819 modules)
+ Γ£ô Compiled in 572ms (819 modules)
+ Γ£ô Compiled in 513ms (819 modules)
+ POST /api/auth/login 401 in 37ms
+ POST /api/auth/login 401 in 59ms
+ Γ£ô Compiled in 382ms (819 modules)
+ Γ£ô Compiled in 620ms (819 modules)

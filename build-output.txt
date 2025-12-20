@@ -1,0 +1,166 @@
+
+> stock@0.1.0 build
+> next build
+
+   Γû▓ Next.js 15.3.2
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully in 6.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+No purchases data found in parent route
+No purchases data found in parent route
+   Generating static pages (0/96) ...
+   Generating static pages (24/96) 
+   Generating static pages (48/96) 
+   Generating static pages (72/96) 
+ Γ£ô Generating static pages (96/96)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                      Size  First Load JS
+Γöî Γùï /                                           52 kB         190 kB
+Γö£ Γùï /_not-found                                 990 B         103 kB
+Γö£ Γùï /accounting/cash-bank                     4.21 kB         170 kB
+Γö£ Γùï /accounting/expense                       3.98 kB         170 kB
+Γö£ ╞Æ /accounting/expense/[id]                    331 B         102 kB
+Γö£ ╞Æ /accounting/expense/[id]/edit               326 B         102 kB
+Γö£ Γùï /accounting/expense/new                   4.55 kB         114 kB
+Γö£ Γùï /all-entries                              2.75 kB         175 kB
+Γö£ ╞Æ /api/admin/fix-users                        322 B         102 kB
+Γö£ ╞Æ /api/auth/[...nextauth]                     322 B         102 kB
+Γö£ ╞Æ /api/auth/activate-user                     322 B         102 kB
+Γö£ ╞Æ /api/auth/debug-roles                       322 B         102 kB
+Γö£ ╞Æ /api/auth/fix-roles                         322 B         102 kB
+Γö£ ╞Æ /api/auth/login                             322 B         102 kB
+Γö£ ╞Æ /api/auth/logout                            322 B         102 kB
+Γö£ ╞Æ /api/auth/me                                322 B         102 kB
+Γö£ ╞Æ /api/auth/permissions                       322 B         102 kB
+Γö£ ╞Æ /api/auth/refresh                           322 B         102 kB
+Γö£ ╞Æ /api/auth/register                          322 B         102 kB
+Γö£ ╞Æ /api/auth/roles                             322 B         102 kB
+Γö£ ╞Æ /api/auth/setup                             322 B         102 kB
+Γö£ ╞Æ /api/auth/signup                            322 B         102 kB
+Γö£ ╞Æ /api/auth/sync-token                        322 B         102 kB
+Γö£ ╞Æ /api/auth/update-profile                    322 B         102 kB
+Γö£ ╞Æ /api/auth/update-schema                     322 B         102 kB
+Γö£ ╞Æ /api/auth/verify                            322 B         102 kB
+Γö£ ╞Æ /api/barcodes                               322 B         102 kB
+Γö£ ╞Æ /api/customers                              322 B         102 kB
+Γö£ ╞Æ /api/customers/[id]                         322 B         102 kB
+Γö£ ╞Æ /api/dashboard/stats                        322 B         102 kB
+Γö£ ╞Æ /api/debug                                  322 B         102 kB
+Γö£ ╞Æ /api/expenses                               322 B         102 kB
+Γö£ ╞Æ /api/expenses/[id]                          322 B         102 kB
+Γö£ ╞Æ /api/invoices                               322 B         102 kB
+Γö£ ╞Æ /api/invoices/[id]                          322 B         102 kB
+Γö£ ╞Æ /api/invoices/generate-reference            322 B         102 kB
+Γö£ ╞Æ /api/items                                  322 B         102 kB
+Γö£ ╞Æ /api/items/[id]                             322 B         102 kB
+Γö£ ╞Æ /api/organizations                          322 B         102 kB
+Γö£ ╞Æ /api/organizations/[id]/members             322 B         102 kB
+Γö£ ╞Æ /api/organizations/[id]/members/[userId]    322 B         102 kB
+Γö£ ╞Æ /api/parties                                322 B         102 kB
+Γö£ ╞Æ /api/parties/[id]                           322 B         102 kB
+Γö£ ╞Æ /api/parties/bulk-import                    322 B         102 kB
+Γö£ ╞Æ /api/parties/sample-template                322 B         102 kB
+Γö£ ╞Æ /api/payments                               322 B         102 kB
+Γö£ ╞Æ /api/payments/[id]                          322 B         102 kB
+Γö£ ╞Æ /api/products                               322 B         102 kB
+Γö£ ╞Æ /api/products/[id]                          322 B         102 kB
+Γö£ ╞Æ /api/products/categories                   274 kB         385 kB
+Γö£ ╞Æ /api/purchases                              322 B         102 kB
+Γö£ ╞Æ /api/purchases/[id]                         322 B         102 kB
+Γö£ ╞Æ /api/purchases/[id]/payment                 322 B         102 kB
+Γö£ ╞Æ /api/purchases/[id]/payment-history         322 B         102 kB
+Γö£ ╞Æ /api/purchases/payments                     322 B         102 kB
+Γö£ ╞Æ /api/purchases/payments/[id]                322 B         102 kB
+Γö£ ╞Æ /api/purchases/returns                      322 B         102 kB
+Γö£ ╞Æ /api/purchases/returns/[id]                 322 B         102 kB
+Γö£ ╞Æ /api/sales/invoices                         322 B         102 kB
+Γö£ ╞Æ /api/sales/invoices/[id]                    322 B         102 kB
+Γö£ ╞Æ /api/sales/orders                           322 B         102 kB
+Γö£ ╞Æ /api/sales/orders/[id]                      322 B         102 kB
+Γö£ ╞Æ /api/sales/payments                         322 B         102 kB
+Γö£ ╞Æ /api/sales/payments/[id]                    322 B         102 kB
+Γö£ ╞Æ /api/sales/quotes                           322 B         102 kB
+Γö£ ╞Æ /api/sales/quotes/[id]                      322 B         102 kB
+Γö£ ╞Æ /api/sales/quotes/[id]/convert              322 B         102 kB
+Γö£ ╞Æ /api/sales/returns                          322 B         102 kB
+Γö£ ╞Æ /api/sales/returns/[id]                     322 B         102 kB
+Γö£ ╞Æ /api/staff                                  322 B         102 kB
+Γö£ ╞Æ /api/staff/[id]                             322 B         102 kB
+Γö£ ╞Æ /api/staff/[id]/reset-password              322 B         102 kB
+Γö£ ╞Æ /api/status                                 322 B         102 kB
+Γö£ ╞Æ /api/stores                                 322 B         102 kB
+Γö£ ╞Æ /api/stores/[id]                            322 B         102 kB
+Γö£ ╞Æ /api/suppliers                              322 B         102 kB
+Γö£ ╞Æ /api/test-db                                322 B         102 kB
+Γö£ ╞Æ /api/transactions                           322 B         102 kB
+Γö£ ╞Æ /api/transactions/[id]                      322 B         102 kB
+Γö£ ╞Æ /api/upload                                 322 B         102 kB
+Γö£ ╞Æ /api/users                                  322 B         102 kB
+Γö£ ╞Æ /api/users/[id]                             322 B         102 kB
+Γö£ Γùï /auth/error                                 447 B         105 kB
+Γö£ Γùï /create-account                             574 B         102 kB
+Γö£ Γùï /dashboard                                 3.8 kB         170 kB
+Γö£ Γùï /help                                     4.08 kB         170 kB
+Γö£ Γùï /inventory/barcode                           6 kB         178 kB
+Γö£ Γùï /inventory/items                          3.87 kB         170 kB
+Γö£ Γùï /inventory/stock                          3.25 kB         113 kB
+Γö£ ╞Æ /inventory/stock/[id]                      2.7 kB         118 kB
+Γö£ ╞Æ /inventory/stock/[id]/edit                2.57 kB         112 kB
+Γö£ Γùï /inventory/stock/new                      3.75 kB         119 kB
+Γö£ Γùï /inventory/stores                         3.13 kB         169 kB
+Γö£ Γùï /inventory/stores/new                     2.01 kB         168 kB
+Γö£ Γùï /login                                    4.69 kB         119 kB
+Γö£ Γùï /notifications                            3.12 kB         169 kB
+Γö£ ╞Æ /organizations/[id]/members               3.04 kB         114 kB
+Γö£ ╞Æ /organizations/[id]/members/new           2.32 kB         112 kB
+Γö£ Γùï /parties                                  2.97 kB         191 kB
+Γö£ ╞Æ /parties/[id]                             3.03 kB         189 kB
+Γö£ Γùï /parties/add                              1.67 kB         168 kB
+Γö£ Γùï /parties/bulk-import                      2.82 kB         189 kB
+Γö£ Γùï /profile                                  3.49 kB         110 kB
+Γö£ Γùï /purchase/invoice                         3.75 kB         170 kB
+Γö£ Γùï /purchase/invoice/new                     3.88 kB         170 kB
+Γö£ Γùï /purchase/orders                          3.81 kB         170 kB
+Γö£ Γùï /purchase/payment-out                      3.8 kB         170 kB
+Γö£ Γùï /purchase/return                          3.87 kB         170 kB
+Γö£ Γùï /register                                 2.13 kB         107 kB
+Γö£ Γùï /reports                                  2.95 kB         169 kB
+Γö£ Γùï /sales                                    4.17 kB         170 kB
+Γö£ Γùï /sales/invoice                            4.76 kB         171 kB
+Γö£ ╞Æ /sales/invoice/[id]                       6.43 kB         179 kB
+Γö£ ╞Æ /sales/invoice/[id]/duplicate             3.52 kB         176 kB
+Γö£ ╞Æ /sales/invoice/[id]/edit                  3.53 kB         176 kB
+Γö£ Γùï /sales/invoice/new                        13.4 kB         186 kB
+Γö£ Γùï /sales/orders                             4.05 kB         170 kB
+Γö£ Γùï /sales/payment-in                         3.81 kB         170 kB
+Γö£ ╞Æ /sales/payment-in/[id]                    2.94 kB         169 kB
+Γö£ ╞Æ /sales/payment-in/[id]/edit               2.31 kB         169 kB
+Γö£ Γùï /sales/payment-in/edit                    2.98 kB         169 kB
+Γö£ Γùï /sales/payment-in/new                     2.46 kB         169 kB
+Γö£ Γùï /sales/quotes                             4.19 kB         170 kB
+Γö£ ╞Æ /sales/quotes/[id]                         4.1 kB         170 kB
+Γö£ ╞Æ /sales/quotes/[id]/edit                   4.35 kB         171 kB
+Γö£ Γùï /sales/quotes/new                         4.31 kB         171 kB
+Γö£ Γùï /sales/return                             4.38 kB         171 kB
+Γö£ Γùï /sales/return/new                          3.1 kB         175 kB
+Γö£ Γùï /settings                                 4.27 kB         171 kB
+Γö£ Γùï /setup                                    1.42 kB         106 kB
+Γö£ Γùï /signup                                   3.52 kB         108 kB
+Γö£ Γùï /staff                                    5.93 kB         172 kB
+Γö£ ╞Æ /staff/[id]/edit                          3.32 kB         170 kB
+Γö£ ╞Æ /staff/[id]/view                           4.3 kB         171 kB
+Γöö Γùï /staff/new                                2.68 kB         169 kB
++ First Load JS shared by all                  102 kB
+  Γö£ chunks/1684-a484fe0c4afdc50e.js           46.4 kB
+  Γö£ chunks/4bd1b696-1100e05c0dba3cca.js       53.2 kB
+  Γöö other shared chunks (total)                  2 kB
+
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+

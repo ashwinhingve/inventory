@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { connectToDB } from '@/lib/mongodb';
 import User from '@/models/user';
+import mongoose from 'mongoose';
 
 interface RegisterRequest {
   name: string;
@@ -31,6 +32,9 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+
+    // Create a default organization for the user
+    const organizationId = new mongoose.Types.ObjectId();
     
     // Create new user
     const user = new User({
@@ -38,7 +42,9 @@ export async function POST(request: Request) {
       email: email.toLowerCase(),
       password,
       role,
-      isActive: true
+      isActive: true,
+      organization: organizationId,
+      dataVisibility: 'own'
     });
     
     await user.save();

@@ -31,26 +31,26 @@ function LoginContent() {
     email: 'admin@admin.com',
     password: 'admin'
   });
-  
+
   // const router = useRouter();
   const searchParams = useSearchParams();
   const from = searchParams?.get('from') || '/dashboard';
   const errorParam = searchParams?.get('error');
-  
+
   // Use NextAuth session
   const { data: session, status } = useSession();
 
   // Handle successful redirect to dashboard
   const handleRedirectToDashboard = useCallback((redirectUrl = '/dashboard') => {
     if (isRedirecting) return; // Prevent multiple redirects
-    
+
     setIsRedirecting(true);
     console.log('Redirecting to:', redirectUrl);
-    
+
     // Store login success flag with timestamp to avoid future redirect loops
     localStorage.setItem('login_successful', 'true');
     localStorage.setItem('login_timestamp', Date.now().toString());
-    
+
     // Use a more direct redirect approach with window.location.href
     try {
       // Force a hard navigation instead of client-side routing
@@ -61,7 +61,7 @@ function LoginContent() {
       window.location.replace(redirectUrl);
     }
   }, [isRedirecting]);
-  
+
   // Check for manual logout flag
   useEffect(() => {
     const logoutFlag = localStorage.getItem('manual_logout');
@@ -80,15 +80,15 @@ function LoginContent() {
       // Get references to form inputs and auto-fill them to provide visual feedback
       const emailInput = document.getElementById('email') as HTMLInputElement;
       const passwordInput = document.getElementById('password') as HTMLInputElement;
-      
+
       if (emailInput) emailInput.value = testCredentials.email;
       if (passwordInput) passwordInput.value = testCredentials.password;
-      
+
       // Then trigger the login submission
       handleLogin(testCredentials.email, testCredentials.password);
     }
   };
-  
+
   // Handle error from URL parameters
   useEffect(() => {
     if (errorParam) {
@@ -104,19 +104,19 @@ function LoginContent() {
       }
     }
   }, [errorParam]);
-  
+
   // Redirect if already authenticated, but respect manual logout
   useEffect(() => {
     // Don't do anything if manually logged out
     if (manualLogout) {
       return;
     }
-    
+
     // If already redirecting, don't do anything else
     if (isRedirecting) {
       return;
     }
-    
+
     // Check session state
     if (status === 'authenticated') {
       const redirectUrl = from ? decodeURIComponent(from) : '/dashboard';
@@ -124,37 +124,16 @@ function LoginContent() {
       handleRedirectToDashboard(redirectUrl);
       return;
     }
-    
-    // If not authenticated via session, check for token
+
+    // If not authenticated via session and not loading, check if we have user data
     if (status !== 'loading') {
-      // Only check token if session check is complete
-      const existingToken = localStorage.getItem('token');
-      if (existingToken) {
-        // Verify the token with the API - but don't log during normal login flow
-        fetch('/api/auth/verify', {
-          headers: { 
-            'Authorization': `Bearer ${existingToken}`,
-            'Cache-Control': 'no-cache, no-store' // Prevent caching
-          }
-        })
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error('Invalid token');
-        })
-        .then(data => {
-          if (data.success) {
-            const redirectUrl = from ? decodeURIComponent(from) : '/dashboard';
-            console.log('Authenticated via token, redirecting to:', redirectUrl);
-            handleRedirectToDashboard(redirectUrl);
-          }
-        })
-        .catch((err) => {
-          console.error('Token verification failed:', err);
-          // Clear invalid token
-          localStorage.removeItem('token');
-        });
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        // We have user data, which means login was successful
+        // The cookie should handle authentication
+        const redirectUrl = from ? decodeURIComponent(from) : '/dashboard';
+        console.log('User data found, redirecting to:', redirectUrl);
+        handleRedirectToDashboard(redirectUrl);
       }
     }
   }, [status, from, manualLogout, isRedirecting, handleRedirectToDashboard]);
@@ -165,16 +144,16 @@ function LoginContent() {
       setError('Please enter both email and password');
       return;
     }
-    
+
     try {
       // Clear any previous authentication state that might cause issues
       localStorage.removeItem('manual_logout');
       localStorage.removeItem('loggedOut');
       setManualLogout(false);
-      
+
       setLoading(true);
       setError('');
-      
+
       // First, try direct API login to get the token
       const apiResponse = await fetch('/api/auth/login', {
         method: 'POST',
@@ -185,37 +164,24 @@ function LoginContent() {
         body: JSON.stringify({ email, password }),
         cache: 'no-store'
       });
-      
+
       if (!apiResponse.ok) {
         const errorData = await apiResponse.json();
         throw new Error(errorData.message || errorData.error || 'Login failed');
       }
-      
+
       const apiData = await apiResponse.json();
-      
-      if (apiData.success) {
-        // Store token in local storage
-        localStorage.setItem('token', apiData.token);
-        
-        // Also set a cookie to help middleware authentication
-        document.cookie = `token=${apiData.token}; path=/; max-age=${30 * 24 * 60 * 60}; SameSite=Lax`;
-        
-        // Now trigger NextAuth for session-based auth
-        const result = await signIn('credentials', {
-          redirect: false,
-          email,
-          password,
-          callbackUrl: decodeURIComponent(from || '/dashboard')
-        });
-        
-        if (result?.error) {
-          console.error('NextAuth signin error:', result.error);
-          throw new Error('Session authentication failed');
-        }
-        
-        // Use the destination from NextAuth if available, otherwise use from param or default to dashboard
-        const redirectUrl = (result?.url) || decodeURIComponent(from || '/dashboard');
-        
+
+      if (apiData.success && apiData.user) {
+        // The server has already set the HTTP-only cookie
+        // No need to store token in localStorage or set cookies manually
+
+        // Store user info in localStorage for UI purposes only
+        localStorage.setItem('user', JSON.stringify(apiData.user));
+
+        // Use the destination from params or default to dashboard
+        const redirectUrl = decodeURIComponent(from || '/dashboard');
+
         // Use our helper function to handle redirect
         handleRedirectToDashboard(redirectUrl);
       } else {
@@ -223,10 +189,10 @@ function LoginContent() {
       }
     } catch (error) {
       console.error('Login error:', error);
-      const err = error as Error; 
+      const err = error as Error;
       setError(`An error occurred: ${err.message || 'Unknown error'}`);
-      // Clear any token in case of failure
-      localStorage.removeItem('token');
+      // Clear any user data in case of failure
+      localStorage.removeItem('user');
       localStorage.removeItem('login_successful');
     } finally {
       setLoading(false);
@@ -249,7 +215,7 @@ function LoginContent() {
   if (status === 'authenticated' && manualLogout) {
     // Force sign out if needed to clear the session state
     signIn('credentials', { redirect: false, email: '', password: '' });
-    
+
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
         <div className="bg-blue-50 border border-blue-200 p-4 rounded-md mb-6 max-w-md w-full">
@@ -257,18 +223,18 @@ function LoginContent() {
             You&apos;ve been logged out. Please log in again to continue.
           </p>
         </div>
-        
+
         <RoleBasedLoginForm
           onLogin={handleLogin}
           loading={loading}
           error={error}
         />
-        
+
         <div className="mt-6 text-center">
           <p className="mt-6 text-center text-sm text-gray-500">
             Don&apos;t have an account?{' '}
-            <Link 
-              href="/register" 
+            <Link
+              href="/register"
               className="font-semibold text-indigo-600 hover:text-indigo-500"
             >
               Sign up here
@@ -298,7 +264,7 @@ function LoginContent() {
       </div>
     );
   }
-  
+
   // Otherwise show the login form
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
@@ -307,18 +273,18 @@ function LoginContent() {
         loading={loading}
         error={error}
       />
-      
+
       <div className="mt-6 text-center">
         <p className="mt-6 text-center text-sm text-gray-500">
           Don&apos;t have an account?{' '}
-          <Link 
-            href="/register" 
+          <Link
+            href="/register"
             className="font-semibold text-indigo-600 hover:text-indigo-500"
           >
             Sign up here
           </Link>
         </p>
-        
+
         {process.env.NODE_ENV === 'development' && (
           <button
             onClick={fillTestCredentials}

@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
 import connectToDatabase from '@/lib/mongodb';
 import Dashboard from '@/models/Dashboard';
 import Item from '@/models/item';
 import Invoice from '@/models/invoice';
 import Party from '@/models/party';
 import { format, subDays } from 'date-fns';
+import { authenticateUser } from '@/app/api/middleware';
 
 // Type definitions for dashboard data
 interface DashboardDocument {
@@ -61,14 +60,16 @@ interface DashboardDocument {
  */
 export async function GET(req: NextRequest) {
   try {
-    // Authenticate the user
-    const session = await getServerSession(authOptions);
-    if (!session?.user) {
+    // Authenticate the user using custom JWT middleware
+    const auth = await authenticateUser(req);
+    if (auth.error || !auth.user) {
       return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
+        { success: false, error: auth.error || 'Unauthorized' },
+        { status: auth.status || 401 }
       );
     }
+
+    const userId = auth.user.id;
 
     // Get query parameters
     const url = new URL(req.url);
@@ -80,14 +81,14 @@ export async function GET(req: NextRequest) {
 
     // Find the user's dashboard data
     const dashboardData = await Dashboard.findOne({
-      userId: session.user.id,
+      userId,
       storeId
     }).lean() as DashboardDocument | null;
 
     if (!dashboardData) {
       // If no dashboard data exists, generate it
-      await generateDashboardData(session.user.id, storeId);
-      
+      await generateDashboardData(userId, storeId);
+
       // Return a simplified initial data set
       return NextResponse.json({
         success: true,
@@ -128,12 +129,12 @@ export async function GET(req: NextRequest) {
     const today = new Date();
     const lastUpdated = new Date(dashboardData.salesPurchaseTrends?.[0]?.lastUpdated || 0);
     const isOutdated = today.getDate() !== lastUpdated.getDate();
-    
+
     if (isOutdated) {
       // Refresh trends data only
-      const trends = await generateTrendsData(session.user.id, storeId, period);
+      const trends = await generateTrendsData(userId, storeId, period);
       dashboardData.salesPurchaseTrends = trends;
-      
+
       // Save updated trends
       await Dashboard.findByIdAndUpdate(dashboardData._id, {
         salesPurchaseTrends: trends
@@ -159,8 +160,8 @@ export async function GET(req: NextRequest) {
 function generateEmptyTrends(period: string) {
   const today = new Date();
   let days = 7;
-  
-  switch(period) {
+
+  switch (period) {
     case 'week':
       days = 7;
       break;
@@ -174,7 +175,7 @@ function generateEmptyTrends(period: string) {
       days = 365;
       break;
   }
-  
+
   const trends = [];
   for (let i = days - 1; i >= 0; i--) {
     const date = subDays(today, i);
@@ -184,7 +185,7 @@ function generateEmptyTrends(period: string) {
       purchase: 0
     });
   }
-  
+
   return trends;
 }
 
@@ -270,7 +271,7 @@ async function generateDashboardData(userId: string, storeId: string | null) {
     const totalPurchase = invoiceResults.find(r => r._id === 'purchase')?.total || 0;
     const totalPaymentReceived = invoiceResults.find(r => r._id === 'sale')?.paid || 0;
     const totalPaymentPaid = invoiceResults.find(r => r._id === 'purchase')?.paid || 0;
-    
+
     const totalReceivable = partyResults.find(r => r._id === 'customer')?.total || 0;
     const totalPayable = partyResults.find(r => r._id === 'supplier')?.total || 0;
 
@@ -331,8 +332,8 @@ async function generateTrendsData(userId: string, storeId: string | null, period
   try {
     const today = new Date();
     let days = 7;
-    
-    switch(period) {
+
+    switch (period) {
       case 'week':
         days = 7;
         break;
@@ -346,9 +347,9 @@ async function generateTrendsData(userId: string, storeId: string | null, period
         days = 365;
         break;
     }
-    
+
     const startDate = subDays(today, days);
-    
+
     // Get daily sales/purchase data
     const invoiceData = await Invoice.aggregate([
       {
@@ -371,17 +372,17 @@ async function generateTrendsData(userId: string, storeId: string | null, period
         $sort: { '_id.date': 1 }
       }
     ]);
-    
+
     // Build daily data structure
     const trendsMap = new Map();
-    
+
     // Initialize with zeroes
     for (let i = 0; i < days; i++) {
       const date = subDays(today, days - 1 - i);
       const dateStr = format(date, 'yyyy-MM-dd');
       trendsMap.set(dateStr, { date, sales: 0, purchase: 0 });
     }
-    
+
     // Fill in actual data
     invoiceData.forEach(item => {
       const { date, type } = item._id;
@@ -394,7 +395,7 @@ async function generateTrendsData(userId: string, storeId: string | null, period
         }
       }
     });
-    
+
     return Array.from(trendsMap.values());
   } catch (error) {
     console.error('Error generating trends data:', error);
